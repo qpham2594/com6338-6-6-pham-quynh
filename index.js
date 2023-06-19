@@ -7,7 +7,6 @@ var hamburgerMenu = document.querySelector('.hamburger-menu')
 // when user clicks on hamburger button...
 
 hamburgerBtn.addEventListener("click", function() {
-    //var showMenu = hamburgerMenu.classList.contains('show-menu');
     hamburgerBtn.setAttribute('aria-expanded', true);   //aria-expanded with hamburger button
     hamburgerBtn.classList.toggle("active");        //toggle is active with the button so it shows the menu
     hamburgerMenu.classList.toggle("show-menu")     //the toggle triggers menu from "show-menu"
