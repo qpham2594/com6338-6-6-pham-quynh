@@ -1,22 +1,28 @@
 // create variables for the main menu, the hamburger button, and the hamburger menu
 
-var mainMenu  = document.getElementById('main-menu')
 var hamburgerBtn = document.querySelector('.hamburger-btn')
 var hamburgerMenu = document.querySelector('.hamburger-menu')
 
 // when user clicks on hamburger button...
 
 hamburgerBtn.addEventListener("click", function() {
-    hamburgerBtn.setAttribute('aria-expanded', true);   //aria-expanded with hamburger button
-    hamburgerBtn.classList.toggle("active");        //toggle is active with the button so it shows the menu
-    hamburgerMenu.classList.toggle("show-menu")     //the toggle triggers menu from "show-menu"
+    if (hamburgerMenu.classList.contains("show-menu")) {
+        closeMenu()
+    }
+    else {
+        openMenu ()
+    }  
 })
+
+function openMenu() {
+    hamburgerBtn.setAttribute('aria-expanded',true);   //aria-expanded with hamburger button
+    hamburgerMenu.classList.toggle("show-menu")     //the toggle triggers menu from "show-menu"
+}
 
 // set a function to close menu to make it efficient
 
 function closeMenu () {
-    hamburgerBtn.removeAttribute('aria-expanded');  // aria-expanded = false when menu is closed
-    hamburgerBtn.classList.toggle("inactive");          // toggle is inactive
+    hamburgerBtn.setAttribute('aria-expanded',false);  // aria-expanded = false when menu is closed
     hamburgerMenu.classList.remove("show-menu");            //hamburger menu removes the menu 
     hamburgerBtn.focus()                            // hamburger button focus
 }
@@ -34,3 +40,4 @@ document.addEventListener("click", function(){
         closeMenu()
     }
 })
+
